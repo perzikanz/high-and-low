@@ -38,13 +38,47 @@ const getRandCardPath = () => {
 document.getElementById('startButton').addEventListener('click', () => {
     // カードのパスをランダムに生成
     const randCardPath = getRandCardPath();
-    console.log(randCardPath);
+    // console.log(randCardPath);
     // 自分のカードの画像を数字のカードに変更
     myCard.src = `card/${randCardPath}`
-    // 開始ボタンを消す
-    
-    // Highボタンを表示
-    
-    // Lowボタンを表示
-    
+    // 開始ボタンを消す(is-hideクラスを開始ボタンにつける)
+    document.getElementById('startButton').classList.add('is-hide');
+    // Highボタンを表示(is-hideクラスをHighボタンから外す)
+    document.getElementById('highButton').classList.remove('is-hide');
+    // Lowボタンを表示(is-hideクラスをHighボタンから外す)
+    document.getElementById('lowButton').classList.remove('is-hide');
+});
+
+document.getElementById('highButton').addEventListener('click', () => {
+    console.log("Highボタンがクリックされました");
+    // カードのパスをランダムに生成
+    const randCardPath = getRandCardPath();
+    // 相手のカードの画像を数字のカードに変更
+    opponentCard.src = `card/${randCardPath}`
+    // 自分のカードの数と相手のカードの数を取得
+    const myCardNum = (myCard.src).slice(-6, -4);
+    const opponentCardNum = randCardPath.slice(-6, -4);
+    // 自分のカードと相手のカードを比べる 相手のカードが大きければ自分の勝ち
+    if (myCardNum <= opponentCardNum){
+        console.log("Win!");
+    } else {
+        console.log("Lose.");
+    }
+});
+
+document.getElementById('lowButton').addEventListener('click', () => {
+    console.log("Lowボタンがクリックされました");
+    // カードのパスをランダムに生成
+    const randCardPath = getRandCardPath();
+    // 相手のカードの画像を数字のカードに変更
+    opponentCard.src = `card/${randCardPath}`
+    // 自分のカードの数と相手のカードの数を取得
+    const myCardNum = (myCard.src).slice(-6, -4);
+    const opponentCardNum = randCardPath.slice(-6, -4);
+    // 自分のカードと相手のカードを比べる 相手のカードが大きければ自分の勝ち
+    if (myCardNum >= opponentCardNum){
+        console.log("Win!");
+    } else {
+        console.log("Lose.");
+    }
 });
