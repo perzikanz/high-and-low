@@ -1,5 +1,6 @@
 const myCard = document.getElementById('myCard');
 const opponentCard = document.getElementById('opponentCard');
+const message = document.getElementById('message');
 /*
 * 52種類のカードのうち1枚をランダムで取得する関数
 */
@@ -50,7 +51,7 @@ document.getElementById('startButton').addEventListener('click', () => {
 });
 
 document.getElementById('highButton').addEventListener('click', () => {
-    console.log("Highボタンがクリックされました");
+    // console.log("Highボタンがクリックされました");
     // カードのパスをランダムに生成
     const randCardPath = getRandCardPath();
     // 相手のカードの画像を数字のカードに変更
@@ -60,9 +61,11 @@ document.getElementById('highButton').addEventListener('click', () => {
     const opponentCardNum = randCardPath.slice(-6, -4);
     // 自分のカードと相手のカードを比べる 相手のカードが大きければ自分の勝ち
     if (myCardNum <= opponentCardNum){
-        document.getElementById('message').textContent = "Win!";
+        message.textContent = "Win!";
+        message.classList.remove('is-hide');
     } else {
-        document.getElementById('message').textContent = "Lose.";
+        message.textContent = "Lose.";
+        message.classList.remove('is-hide');
     }
     // Hightボタンを消して再開ボタンを表示
     document.getElementById('highButton').classList.add('is-hide');
@@ -71,7 +74,7 @@ document.getElementById('highButton').addEventListener('click', () => {
 });
 
 document.getElementById('lowButton').addEventListener('click', () => {
-    console.log("Lowボタンがクリックされました");
+    // console.log("Lowボタンがクリックされました");
     // カードのパスをランダムに生成
     const randCardPath = getRandCardPath();
     // 相手のカードの画像を数字のカードに変更
@@ -81,9 +84,11 @@ document.getElementById('lowButton').addEventListener('click', () => {
     const opponentCardNum = randCardPath.slice(-6, -4);
     // 自分のカードと相手のカードを比べる 相手のカードが大きければ自分の勝ち
     if (myCardNum >= opponentCardNum){
-        document.getElementById('message').textContent = "Win!";
+        message.textContent = "Win!";
+        message.classList.remove('is-hide');
     } else {
-        document.getElementById('message').textContent = "Lose.";
+        message.textContent = "Lose.";
+        message.classList.remove('is-hide');
     }
     // HightボタンとLowボタンを消して再開ボタンを表示
     document.getElementById('lowButton').classList.add('is-hide');
@@ -98,5 +103,6 @@ document.getElementById('restartButton').addEventListener('click', () => {
     document.getElementById('lowButton').classList.remove('is-hide');
     document.getElementById('highButton').classList.remove('is-hide');
     document.getElementById('restartButton').classList.add('is-hide');
-    document.getElementById('message').textContent = "";
+    // 勝敗メッセージを消す
+    message.classList.add('is-hide');
 });

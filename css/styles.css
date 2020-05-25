@@ -1,20 +1,43 @@
-/* .MyCard {
-    
-} */
 .is-hide {
     visibility: hidden;
 }
 
-button {
-    width: 80px;
-    height: 30px;
-    font-size: 20;
-}
-
 img {
-    height: 400px;
+    width: 200px;
 }
 
 .message {
     margin-top: 10px;
+    font-size: 30px;
+}
+
+.buttons {
+    display: flex;
+    margin-top: 10px;
+}
+
+button {
+    display: block;
+    position: relative;
+	width: 160px;
+	padding: 0.6em;
+	text-align: center;
+	text-decoration: none;
+	color: #5e1261;
+	background: #ffe9e8;
+    border:1px solid #ffdad9;
+    font-size: 17px;
+    margin-left: 3px;
+}
+
+button:hover {
+    background: #ffdad9;
+    color: #fff;
+	cursor: pointer;
+	text-decoration: none;
+}
+
+.cards {
+    margin-left: auto;
+    margin-right: auto;
 }

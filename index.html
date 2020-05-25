@@ -7,16 +7,18 @@
         <link rel="stylesheet" href="css/styles.css">
     </head>
     <body>
-        <img id="myCard" src="card/card_back.png">
-        <img id="opponentCard" src="card/card_back.png">
-        <div>
+        <div id="message" class="message is-hide">結果は・・・</div>
+
+        <div class="cards">
+            <img id="myCard" src="card/card_back.png">
+            <img id="opponentCard" src="card/card_back.png">
+        </div>
+        <div class="buttons">
             <button id="startButton">開始</button>
             <button id="highButton" class="is-hide">Hight</button>
             <button id="lowButton" class="is-hide">Low</button>
             <button id="restartButton" class="is-hide">再開</button>
         </div>
-
-        <div id="message" class="message"> </div>
 
         <script type="text/javascript" src="high-and-low.js"></script>
     </body>
