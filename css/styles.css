@@ -1,19 +1,31 @@
+.Block {
+    max-width: 700px;
+    margin: auto;
+}
+
 .is-hide {
     visibility: hidden;
+}
+
+.message {
+    margin-top: 10px;
+    font-size: 30px;
+    text-align: center;
+}
+
+.cards {
+    text-align: center;
 }
 
 img {
     width: 200px;
 }
 
-.message {
-    margin-top: 10px;
-    font-size: 30px;
-}
 
 .buttons {
     display: flex;
     margin-top: 10px;
+    justify-content: space-between;
 }
 
 button {
@@ -27,7 +39,7 @@ button {
 	background: #ffe9e8;
     border:1px solid #ffdad9;
     font-size: 17px;
-    margin-left: 3px;
+    /* margin-left: 3px; */
 }
 
 button:hover {
@@ -37,7 +49,3 @@ button:hover {
 	text-decoration: none;
 }
 
-.cards {
-    margin-left: auto;
-    margin-right: auto;
-}
