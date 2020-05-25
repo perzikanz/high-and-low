@@ -1,5 +1,5 @@
 const myCard = document.getElementById('myCard');
-
+const opponentCard = document.getElementById('opponentCard');
 /*
 * 52種類のカードのうち1枚をランダムで取得する関数
 */
@@ -60,10 +60,14 @@ document.getElementById('highButton').addEventListener('click', () => {
     const opponentCardNum = randCardPath.slice(-6, -4);
     // 自分のカードと相手のカードを比べる 相手のカードが大きければ自分の勝ち
     if (myCardNum <= opponentCardNum){
-        console.log("Win!");
+        document.getElementById('message').textContent = "Win!";
     } else {
-        console.log("Lose.");
+        document.getElementById('message').textContent = "Lose.";
     }
+    // Hightボタンを消して再開ボタンを表示
+    document.getElementById('highButton').classList.add('is-hide');
+    document.getElementById('lowButton').classList.add('is-hide');
+    document.getElementById('restartButton').classList.remove('is-hide');
 });
 
 document.getElementById('lowButton').addEventListener('click', () => {
@@ -77,8 +81,22 @@ document.getElementById('lowButton').addEventListener('click', () => {
     const opponentCardNum = randCardPath.slice(-6, -4);
     // 自分のカードと相手のカードを比べる 相手のカードが大きければ自分の勝ち
     if (myCardNum >= opponentCardNum){
-        console.log("Win!");
+        document.getElementById('message').textContent = "Win!";
     } else {
-        console.log("Lose.");
+        document.getElementById('message').textContent = "Lose.";
     }
+    // HightボタンとLowボタンを消して再開ボタンを表示
+    document.getElementById('lowButton').classList.add('is-hide');
+    document.getElementById('highButton').classList.add('is-hide');
+    document.getElementById('restartButton').classList.remove('is-hide');
+});
+
+document.getElementById('restartButton').addEventListener('click', () => {
+    myCard.src = opponentCard.src;
+    opponentCard.src = 'card/card_back.png';
+    // HightボタンとLowボタンを表示し、再開ボタンを消す
+    document.getElementById('lowButton').classList.remove('is-hide');
+    document.getElementById('highButton').classList.remove('is-hide');
+    document.getElementById('restartButton').classList.add('is-hide');
+    document.getElementById('message').textContent = "";
 });
